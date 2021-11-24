@@ -9,7 +9,12 @@ public class Boxgenerator : MonoBehaviour
     [SerializeField] GameObject[] m_gameobject = default;
     int[] m_box = new int[]{0, 1, 2, 3};
     int[] m_shuffle = new int[4];
+    [SerializeField] Transform[] m_transform = default;
+    [SerializeField] BoxNumber[] bn = new BoxNumber[4];
+    float m_time;
 
+    public int count;
+    public int answerCount;
     void Start()
     {
         Generator();
@@ -17,7 +22,7 @@ public class Boxgenerator : MonoBehaviour
 
     void Update()
     {
-        
+        m_time += Time.deltaTime;
     }
 
     void Generator()
@@ -25,7 +30,15 @@ public class Boxgenerator : MonoBehaviour
         m_shuffle = m_box.ToList().OrderBy(i => Guid.NewGuid()).ToArray();
         for (int i = 0; i < m_gameobject.Length; i++)
         {
-            GameObject go = Instantiate(m_gameobject[m_shuffle[i]]);
+            bn[i].m_gameObject = Instantiate(m_gameobject[m_shuffle[i]],m_transform[i]);
+        }
+        if(m_time > 3)
+        {
+            for(int i = 0; i < m_gameobject.Length; i++)
+            {
+                Destroy(m_gameobject[i]);
+            }
         }
     }
+
 }
