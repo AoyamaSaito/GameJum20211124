@@ -17,16 +17,17 @@ public class TimeMoneyUp : MonoBehaviour
     void Start()
     {
         goal = goals[currentGoalIndex++];
-        goalText.text = goal.ToString();
+        goalText.text = "獲得量アップ額:" + goal.ToString();
     }
 
     public void Buy()
     {
         if (MoneyManager.CurrentMoney >= goal)
         {
-            MoneyManager.TimeMoney(addMoney);
-            goalText.text = goal.ToString();
+            MoneyManager.addTimeMoeny(addMoney);
+            MoneyManager.ReduceMoney(goal);
             goal = goals[currentGoalIndex++];
+            goalText.text = "獲得量アップ額:" + goal.ToString();
         }
         else
         {
