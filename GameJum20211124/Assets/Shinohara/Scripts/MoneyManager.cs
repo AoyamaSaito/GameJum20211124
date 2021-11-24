@@ -23,6 +23,8 @@ public class MoneyManager : MonoBehaviour
 
     static float _time = 0f;
 
+    static bool flag = false;
+
     /// <summary>現在の所持金</summary>
     public static int CurrentMoney { get => _currentMoney; set => _currentMoney = value; }
     /// <summary>所持金の上限</summary>
@@ -47,24 +49,29 @@ public class MoneyManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _maxMoney = _firstMaxMoney; //最初の上限を設定する
-        _addAmount = _addMoneyAmount;
+        if (!flag)
+        {
+            _maxMoney = _firstMaxMoney; //最初の上限を設定する
+            _addAmount = _addMoneyAmount;
+            flag = true;
+        }
 
-        if (GameObject.FindGameObjectWithTag("MaxMoney") != null)
-        {
-            _maxMoenyText = GameObject.FindGameObjectWithTag("MaxMoney").GetComponent<Text>();
-        }
-       
-        if (GameObject.Find("MoneyText") != null)
-        {
-            _moneyText = GameObject.Find("MoneyText").GetComponent<Text>();
-        }
-        
     }
 
     // Update is called once per frame
     void Update()
     {
+
+        if (GameObject.FindGameObjectWithTag("MaxMoney") != null)
+        {
+            _maxMoenyText = GameObject.FindGameObjectWithTag("MaxMoney").GetComponent<Text>();
+        }
+
+        if (GameObject.FindGameObjectWithTag("CurrentMoney") != null)
+        {
+            _moneyText = GameObject.FindGameObjectWithTag("CurrentMoney").GetComponent<Text>();
+        }
+
         _time += Time.deltaTime;
         if (_maxMoenyText != null)
         {

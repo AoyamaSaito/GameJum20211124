@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Money
   - MaxMoney
+  - CurrentMoney
   layers:
   - Default
   - TransparentFX
