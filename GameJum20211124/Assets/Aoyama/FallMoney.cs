@@ -15,7 +15,6 @@ public class FallMoney : MonoBehaviour
         rb.AddTorque(Random.Range(minTorque, maxTorque));
         Destroy(gameObject, destroyTime);
     }
-
     
     void Update()
     {
