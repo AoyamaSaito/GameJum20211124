@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 using System;
+using UnityEngine.UI;
 
 public class Boxgenerator : MonoBehaviour
 {
     [SerializeField] GameObject[] m_gameobject = default;//プレハブを入れておく配列
     [SerializeField] Transform[] m_transform = default;
     [SerializeField] BoxNumber[] bn = new BoxNumber[4];
+    [SerializeField] public MoneyManager mm = default;
     [SerializeField] int m_reduceMoney = 1000;
     [SerializeField] public float stageChange = 1f;
     int[] m_box = new int[]{0, 1, 2, 3};

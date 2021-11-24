@@ -2,16 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class BoxNumber : MonoBehaviour
 {
     public GameObject m_gameObject = default;
     Boxgenerator bg;
-
-    void Start()
-    {
-     
-    }
 
     public void Judge()
     {
@@ -32,7 +28,7 @@ public class BoxNumber : MonoBehaviour
 
         if(bg.answerCount == 4)
         {
-            MoneyManager.AddMoney(MoneyManager.CurrentMoney / 10);
+            bg.mm.AddMoney(MoneyManager.CurrentMoney / 10);
             StartCoroutine(StageChange());
         }
     }
