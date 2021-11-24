@@ -10,18 +10,13 @@ public class MoneyManager : MonoBehaviour
     [SerializeField] int _firstMaxMoney = 0;
     /// <summary>時間経過で増える量</summary>
     [SerializeField] int _addMoneyAmount = 0;
-    /// <summary>お金をが増える間隔</summary>
-    [SerializeField] float _addMoneyInterval = 0f;
-
+   
     /// <summary>現在の所持金</summary>
     static int _currentMoney = 0;
     /// <summary>所持金の上限</summary>
     static int _maxMoney = 0;
-
+    /// <summary>時間経過で増える量</summary>
     static int _addAmount = 0;
-
-    static float _addInterval = 0f;
-
     /// <summary>インスタンスを取得するためのパブリック変数</summary>
     public static MoneyManager Instance = default;
 
@@ -31,6 +26,8 @@ public class MoneyManager : MonoBehaviour
     public static int CurrentMoney { get => _currentMoney; set => _currentMoney = value; }
     /// <summary>所持金の上限</summary>
     public static int MaxMoney { get => _maxMoney; set => _maxMoney = value; }
+    /// <summary>時間経過で増える量</summary>
+    public static int AddAmount { get => _addAmount; set => _addAmount = value; }
 
     /// <summary>シングルトン</summary>
     private void Awake()
@@ -51,7 +48,6 @@ public class MoneyManager : MonoBehaviour
     {
         _currentMoney = _testMoney;
         _maxMoney = _firstMaxMoney; //最初の上限を設定する
-        _addInterval = _addMoneyInterval;
         _addAmount = _addMoneyAmount;
     }
 
@@ -59,7 +55,7 @@ public class MoneyManager : MonoBehaviour
     void Update()
     {
         _time += Time.deltaTime;
-        TimeMoney();
+        TimeMoney(_addAmount);
         
     }
 
@@ -85,14 +81,14 @@ public class MoneyManager : MonoBehaviour
     }
 
     /// <summary>時間経過で増えるお金</summary>
-    public static void TimeMoney()
+    public static void TimeMoney(int addAmount)
     {
-        if (_time >= _addInterval && _currentMoney < _maxMoney)
+        if (_time >= 1f && _currentMoney < _maxMoney)
         {
-            _currentMoney += _addAmount;
+            _currentMoney += addAmount;
             _time = 0f;
         }
-        else if (_time >= _addInterval)
+        else if (_time >= 1f)
         {
             _time = 0f;
         }
