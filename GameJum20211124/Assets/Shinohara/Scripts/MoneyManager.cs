@@ -85,7 +85,7 @@ public class MoneyManager : MonoBehaviour
     }
 
     /// <summary>時間経過で増えるお金</summary>
-    private static void TimeMoney()
+    public static void TimeMoney()
     {
         if (_time >= _addInterval && _currentMoney < _maxMoney)
         {
