@@ -11,17 +11,41 @@ public class MaxUp : MonoBehaviour
     [SerializeField] int nextMaxIndex = 0;
     [SerializeField] GameObject missText = default;
     [SerializeField] float missTextTime = 1f;
-    [SerializeField] Text goalText;
+     Text goalText;
+    public static MaxUp Instance = default;
 
+    private void Awake()
+    {
+        if (Instance)
+        {
+            Destroy(this.gameObject);
+        }
+        else
+        {
+            Instance = this;
+            DontDestroyOnLoad(this.gameObject);
+        }
+    }
     int goal = 0;
 
     int nextMaxMoney = 0;
 
     void Start()
     {
+        goalText = GameObject.Find("MaxUpGoalText").GetComponent<Text>();
         goal = goals[currentGoalIndex++];
         nextMaxMoney = nextmaxMoneys[nextMaxIndex++];
         goalText.text = "上限アップ額:" +  goal.ToString();
+    }
+
+    private void Update()
+    {
+        if (goalText  == null && GameObject.Find("MaxUpGoalText") != null)
+        {
+            goalText = GameObject.Find("MaxUpGoalText").GetComponent<Text>();
+        }
+
+        goalText.text = "上限アップ額:" + goal.ToString();
     }
 
     public void Buy()

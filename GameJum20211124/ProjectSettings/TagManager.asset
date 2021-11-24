@@ -7,6 +7,7 @@ TagManager:
   - Money
   - MaxMoney
   - CurrentMoney
+  - GoalText
   layers:
   - Default
   - TransparentFX

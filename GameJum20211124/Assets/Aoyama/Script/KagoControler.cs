@@ -6,7 +6,9 @@ using UnityEngine.Events;
 public class KagoControler : MonoBehaviour
 {
     [SerializeField, Tooltip("動くスピード")] float moveSpeed = 5f;
-    [SerializeField] UnityEvent AddMoney;
+    MoneyManager moneyManager = default;
+    [SerializeField] int addMoney = 0;
+    //[SerializeField] UnityEvent AddMoney;
 
     float h = 0;
     Rigidbody2D rb;
@@ -14,6 +16,7 @@ public class KagoControler : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        moneyManager = GameObject.Find("GameManager").GetComponent<MoneyManager>() ;
         rb.gravityScale = 0;
     }
 
@@ -21,6 +24,10 @@ public class KagoControler : MonoBehaviour
     void Update()
     {
         h = Input.GetAxisRaw("Horizontal");
+        if (moneyManager == null)
+        {
+            moneyManager = GameObject.Find("GameManager").GetComponent<MoneyManager>();
+        }   
     }
 
     void FixedUpdate()
@@ -33,7 +40,7 @@ public class KagoControler : MonoBehaviour
         if(collision.gameObject.CompareTag("Money"))
         {
             Destroy(collision.gameObject);
-            AddMoney.Invoke();
+            moneyManager.AddMoney(addMoney);
         }
     }
 }

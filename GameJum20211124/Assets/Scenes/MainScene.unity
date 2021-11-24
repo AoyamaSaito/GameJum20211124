@@ -293,10 +293,30 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7315670630230027634, guid: f8013856341b7b5419e9cca4f7b7e702,
         type: 3}
+      propertyPath: m_Size.x
+      value: 2.3133333
+      objectReference: {fileID: 0}
+    - target: {fileID: 7315670630230027634, guid: f8013856341b7b5419e9cca4f7b7e702,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 1.88
+      objectReference: {fileID: 0}
+    - target: {fileID: 7315670630230027634, guid: f8013856341b7b5419e9cca4f7b7e702,
+        type: 3}
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 6d5e21bee851ada4db0f8c262df0748a,
         type: 3}
+    - target: {fileID: 7315670630230027634, guid: f8013856341b7b5419e9cca4f7b7e702,
+        type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7315670630230027644, guid: f8013856341b7b5419e9cca4f7b7e702,
+        type: 3}
+      propertyPath: addMoney
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 7315670630230027644, guid: f8013856341b7b5419e9cca4f7b7e702,
         type: 3}
       propertyPath: AddMoney.m_PersistentCalls.m_Calls.Array.size
@@ -386,6 +406,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7315670630230027647, guid: f8013856341b7b5419e9cca4f7b7e702,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.x
+      value: 2.3133333
+      objectReference: {fileID: 0}
+    - target: {fileID: 7315670630230027647, guid: f8013856341b7b5419e9cca4f7b7e702,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.y
+      value: 1.88
       objectReference: {fileID: 0}
     - target: {fileID: 7315670630230027647, guid: f8013856341b7b5419e9cca4f7b7e702,
         type: 3}
@@ -652,8 +682,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -211.5, y: 143.9}
-  m_SizeDelta: {x: 240, y: 80}
+  m_AnchoredPosition: {x: 128, y: -141}
+  m_SizeDelta: {x: 240, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &323547892
 MonoBehaviour:
@@ -676,7 +706,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: b37dd1082ca0b434bb73a5d0819fcd18, type: 3}
-    m_FontSize: 30
+    m_FontSize: 22
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -708,7 +738,6 @@ GameObject:
   - component: {fileID: 343548876}
   - component: {fileID: 343548875}
   - component: {fileID: 343548874}
-  - component: {fileID: 343548877}
   m_Layer: 5
   m_Name: MaxUpButton
   m_TagString: Untagged
@@ -779,7 +808,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 343548877}
+      - m_Target: {fileID: 1648487745}
         m_MethodName: Buy
         m_Mode: 1
         m_Arguments:
@@ -827,25 +856,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 343548872}
   m_CullTransparentMesh: 0
---- !u!114 &343548877
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 343548872}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adf1395310c76cb4f984aa72ff1b6105, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  goals: f4010000dc050000b80b000070170000e02e0000
-  nextmaxMoneys: d0070000a00f0000401f0000803e0000007d0000
-  currentGoalIndex: 0
-  nextMaxIndex: 0
-  missText: {fileID: 722421249}
-  missTextTime: 1
-  goalText: {fileID: 1252715063}
 --- !u!1 &379445181
 GameObject:
   m_ObjectHideFlags: 0
@@ -936,7 +946,6 @@ GameObject:
   - component: {fileID: 508857428}
   - component: {fileID: 508857427}
   - component: {fileID: 508857426}
-  - component: {fileID: 508857429}
   m_Layer: 5
   m_Name: BuyButton
   m_TagString: Untagged
@@ -1007,7 +1016,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 508857429}
+      - m_Target: {fileID: 1648487743}
         m_MethodName: Buy
         m_Mode: 1
         m_Arguments:
@@ -1055,23 +1064,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 508857424}
   m_CullTransparentMesh: 0
---- !u!114 &508857429
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 508857424}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 12ff35d5de979544385bc96a981964b7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  goals: e8030000d00700008813000010270000204e0000
-  currentGoalIndex: 0
-  missText: {fileID: 722421249}
-  missTextTime: 1
-  goalText: {fileID: 2019304265}
 --- !u!1001 &580953512
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2105,6 +2097,41 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 12800000, guid: b37dd1082ca0b434bb73a5d0819fcd18,
         type: 3}
+    - target: {fileID: 5858582671920155702, guid: 5e4b771421411f047a461676197d4028,
+        type: 3}
+      propertyPath: m_FontData.m_MaxSize
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 5858582671920155702, guid: 5e4b771421411f047a461676197d4028,
+        type: 3}
+      propertyPath: m_FontData.m_MinSize
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5858582671920155702, guid: 5e4b771421411f047a461676197d4028,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 5858582671920155703, guid: 5e4b771421411f047a461676197d4028,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 5858582671920155703, guid: 5e4b771421411f047a461676197d4028,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 5858582671920155703, guid: 5e4b771421411f047a461676197d4028,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 42
+      objectReference: {fileID: 0}
+    - target: {fileID: 5858582671920155703, guid: 5e4b771421411f047a461676197d4028,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 5858582672304984547, guid: 5e4b771421411f047a461676197d4028,
         type: 3}
       propertyPath: m_IsActive
@@ -2157,8 +2184,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -210.9, y: 110}
-  m_SizeDelta: {x: 240, y: 80}
+  m_AnchoredPosition: {x: 296, y: -141}
+  m_SizeDelta: {x: 240, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1252715063
 MonoBehaviour:
@@ -2181,7 +2208,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: b37dd1082ca0b434bb73a5d0819fcd18, type: 3}
-    m_FontSize: 30
+    m_FontSize: 22
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -2354,7 +2381,6 @@ GameObject:
   - component: {fileID: 1604495999}
   - component: {fileID: 1604495998}
   - component: {fileID: 1604495997}
-  - component: {fileID: 1604496000}
   m_Layer: 5
   m_Name: TimeMoneyUpButton
   m_TagString: Untagged
@@ -2425,7 +2451,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1604496000}
+      - m_Target: {fileID: 1648487744}
         m_MethodName: Buy
         m_Mode: 1
         m_Arguments:
@@ -2473,24 +2499,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1604495995}
   m_CullTransparentMesh: 0
---- !u!114 &1604496000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1604495995}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c7d6ee906e505d4a8f685456307a774, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  goals: 64000000f4010000c4090000b80b0000ac0d0000
-  currentGoalIndex: 0
-  missText: {fileID: 722421249}
-  missTextTime: 1
-  goalText: {fileID: 323547892}
-  addMoney: 10
 --- !u!1001 &1648297001
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2626,6 +2634,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1648487741}
   - component: {fileID: 1648487742}
+  - component: {fileID: 1648487743}
+  - component: {fileID: 1648487745}
+  - component: {fileID: 1648487744}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -2661,6 +2672,55 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _firstMaxMoney: 1000
   _addMoneyAmount: 10
+--- !u!114 &1648487743
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1648487740}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12ff35d5de979544385bc96a981964b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  goals: e8030000d00700008813000010270000204e0000
+  currentGoalIndex: 0
+  missTextTime: 1
+--- !u!114 &1648487744
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1648487740}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c7d6ee906e505d4a8f685456307a774, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  goals: 64000000f4010000c4090000b80b0000ac0d0000
+  currentGoalIndex: 0
+  missTextTime: 1
+  addMoney: 10
+--- !u!114 &1648487745
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1648487740}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: adf1395310c76cb4f984aa72ff1b6105, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  goals: f4010000dc050000b80b000070170000e02e0000
+  nextmaxMoneys: d0070000a00f0000401f0000803e0000007d0000
+  currentGoalIndex: 0
+  nextMaxIndex: 0
+  missText: {fileID: 722421249}
+  missTextTime: 1
 --- !u!1001 &1850963525
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2902,7 +2962,7 @@ GameObject:
   - component: {fileID: 2019304265}
   m_Layer: 5
   m_Name: GoalText
-  m_TagString: Untagged
+  m_TagString: GoalText
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2923,7 +2983,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -110, y: 176}
+  m_AnchoredPosition: {x: -66, y: 173}
   m_SizeDelta: {x: 250, y: 90}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2019304265
@@ -2947,7 +3007,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: b37dd1082ca0b434bb73a5d0819fcd18, type: 3}
-    m_FontSize: 30
+    m_FontSize: 50
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0

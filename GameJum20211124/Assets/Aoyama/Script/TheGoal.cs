@@ -7,15 +7,48 @@ public class TheGoal : MonoBehaviour
 {
     [SerializeField] int[] goals = new int[5];
     [SerializeField] int currentGoalIndex = 0;
-    [SerializeField] GameObject missText = default;
+    public static GameObject missText = default;
     [SerializeField] float missTextTime = 1f;
-    [SerializeField] Text goalText;
+    Text goalText;
 
-    int goal = 0;
+    public static TheGoal Instance = default;
+
+    private void Awake()
+    {
+        if (Instance)
+        {
+            Destroy(this.gameObject);
+        }
+        else
+        {
+            Instance = this;
+            DontDestroyOnLoad(this.gameObject);
+        }
+    }
+
+   static int goal = 0;
 
     void Start()
     {
+        goalText = GameObject.Find("GoalText").GetComponent<Text>();
+        missText = GameObject.Find("NoMoney");
         goal = goals[currentGoalIndex++];
+        goalText.text = goal.ToString();
+    }
+
+    private void Update()
+    {
+        if (GameObject.FindGameObjectWithTag("GoalText") != null)
+        {
+            goalText = GameObject.FindGameObjectWithTag("GoalText").GetComponent<Text>();
+        }
+
+        if (missText == null)
+        {
+            missText = GameObject.Find("NoMoney");
+        }
+
+
         goalText.text = goal.ToString();
     }
 

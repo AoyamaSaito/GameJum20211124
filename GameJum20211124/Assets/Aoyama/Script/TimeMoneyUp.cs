@@ -7,16 +7,42 @@ public class TimeMoneyUp : MonoBehaviour
 {
     [SerializeField] int[] goals = new int[5];
     [SerializeField] int currentGoalIndex = 0;
-    [SerializeField] GameObject missText = default;
+    //[SerializeField] GameObject missText = default;
     [SerializeField] float missTextTime = 1f;
-    [SerializeField] Text goalText;
+    Text goalText;
     [SerializeField] int addMoney = 10;
+
+    public static TimeMoneyUp Instance = default;
 
     int goal = 0;
 
+    private void Awake()
+    {
+        if (Instance)
+        {
+            Destroy(this.gameObject);
+        }
+        else
+        {
+            Instance = this;
+            DontDestroyOnLoad(this.gameObject);
+        }
+    }
+
     void Start()
     {
+        goalText = GameObject.Find("TimeGoalText").GetComponent<Text>();
         goal = goals[currentGoalIndex++];
+        goalText.text = "獲得量アップ額:" + goal.ToString();
+    }
+
+    private void Update()
+    {
+        if (goalText == null && GameObject.Find("TimeGoalText") != null)
+        {
+            goalText = GameObject.Find("TimeGoalText").GetComponent<Text>();
+        }
+
         goalText.text = "獲得量アップ額:" + goal.ToString();
     }
 
@@ -37,8 +63,8 @@ public class TimeMoneyUp : MonoBehaviour
 
     IEnumerator MissText()
     {
-        missText.SetActive(true);
+        TheGoal.missText.SetActive(true);
         yield return new WaitForSeconds(missTextTime);
-        missText.SetActive(false);
+        TheGoal.missText.SetActive(false);
     }
 }
