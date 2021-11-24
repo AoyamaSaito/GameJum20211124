@@ -16,7 +16,7 @@ public class TheGoal : MonoBehaviour
     void Start()
     {
         goal = goals[currentGoalIndex++];
-        goalText.text = "目標金額：" + goal;
+        goalText.text = goal.ToString();
     }
 
     public void Buy()
@@ -24,8 +24,8 @@ public class TheGoal : MonoBehaviour
         if(MoneyManager.CurrentMoney >= goal)
         {
             MoneyManager.ReduceMoney(goal);
-            goalText.text = "目標金額：" + goal;
             goal = goals[currentGoalIndex++];
+            goalText.text = goal.ToString();
         }
         else
         {

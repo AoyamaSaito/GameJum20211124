@@ -9,9 +9,9 @@ public class MoneyManager : MonoBehaviour
     /// <summary>時間経過で増える量</summary>
     [SerializeField] int _addMoneyAmount = 0;
     /// <summary>現在の所持金</summary>
-    [SerializeField] Text _moneyText = default;
+    Text _moneyText = default;
     /// <summary>上限金額</summary>
-    [SerializeField] Text _maxMoenyText = default;
+    Text _maxMoenyText = default;
     /// <summary>現在の所持金</summary>
     static int _currentMoney = 0;
     /// <summary>所持金の上限</summary>
@@ -49,14 +49,33 @@ public class MoneyManager : MonoBehaviour
     {
         _maxMoney = _firstMaxMoney; //最初の上限を設定する
         _addAmount = _addMoneyAmount;
+
+        if (GameObject.FindGameObjectWithTag("MaxMoney") != null)
+        {
+            _maxMoenyText = GameObject.FindGameObjectWithTag("MaxMoney").GetComponent<Text>();
+        }
+       
+        if (GameObject.Find("MoneyText") != null)
+        {
+            _moneyText = GameObject.Find("MoneyText").GetComponent<Text>();
+        }
+        
     }
 
     // Update is called once per frame
     void Update()
     {
         _time += Time.deltaTime;
-        _moneyText.text = "所持金"+ _currentMoney.ToString();
-        _maxMoenyText.text = "上限金額" + _maxMoney.ToString();
+        if (_maxMoenyText != null)
+        {
+            _moneyText.text = "所持金:" + _currentMoney.ToString();
+        }
+
+        if (_maxMoenyText != null)
+        {
+            _maxMoenyText.text = "上限金額:" + _maxMoney.ToString();
+        }
+        
          TimeMoney();
         _currentMoney = Mathf.Clamp(_currentMoney, 0, _maxMoney);
     }

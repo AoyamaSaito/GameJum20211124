@@ -4,5 +4,14 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Aoyama/Title.unity
+    guid: 06e4de51d7c2ad448b81dc3a9b7fa3aa
+  - enabled: 1
+    path: Assets/Scenes/MainScene.unity
+    guid: c3b84fe89ae99f143a2f0ec4fb611c96
+  - enabled: 1
+    path: Assets/Scenes/Kanbara.unity
+    guid: e56e76a12df8efd4c88492493409e754
   m_configObjects: {}
