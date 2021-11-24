@@ -9,13 +9,10 @@ public class BoxNumber : MonoBehaviour
     public GameObject m_gameObject = default;
     Boxgenerator bg;
 
-    void Start()
-    {
-        bg.mm = GameObject.Find("GameManager").GetComponent<MoneyManager>();
-    }
     public void Judge()
     {
         bg = GameObject.Find("Generator").GetComponent<Boxgenerator>();
+        bg.mm = GameObject.Find("GameManager").GetComponent<MoneyManager>();
         bg.count++;
         Debug.Log($"Box{bg.count}");
         Debug.Log(m_gameObject.name);
