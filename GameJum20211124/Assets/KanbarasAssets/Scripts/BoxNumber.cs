@@ -25,6 +25,7 @@ public class BoxNumber : MonoBehaviour
         else
         {
             MoneyManager.ReduceMoney(MoneyManager.CurrentMoney/10);
+            StartCoroutine(StageChange());
         }
 
         if(bg.answerCount == 4)
