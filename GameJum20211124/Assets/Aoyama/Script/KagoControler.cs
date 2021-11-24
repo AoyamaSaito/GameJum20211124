@@ -8,16 +8,18 @@ public class KagoControler : MonoBehaviour
     [SerializeField, Tooltip("動くスピード")] float moveSpeed = 5f;
     MoneyManager moneyManager = default;
     [SerializeField] int addMoney = 0;
+    [SerializeField] AudioClip moneySE = default;
     //[SerializeField] UnityEvent AddMoney;
 
     float h = 0;
     Rigidbody2D rb;
-
+    AudioSource audioSource;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         moneyManager = GameObject.Find("GameManager").GetComponent<MoneyManager>() ;
         rb.gravityScale = 0;
+        audioSource = this.gameObject.AddComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -41,6 +43,7 @@ public class KagoControler : MonoBehaviour
         {
             Destroy(collision.gameObject);
             moneyManager.AddMoney(addMoney);
+            audioSource.PlayOneShot(moneySE);
         }
     }
 }
