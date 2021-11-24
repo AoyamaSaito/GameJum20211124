@@ -117,8 +117,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52ceee0b49328ea4c870e759e8ee8e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minTorque: -30
-  maxTorque: 30
+  minTorque: -100
+  maxTorque: 100
+  destroyTime: 4
 --- !u!61 &6315976681251825779
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -136,7 +137,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.857143, y: 1.8071429}
+    oldSize: {x: 2, y: 1.265}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
