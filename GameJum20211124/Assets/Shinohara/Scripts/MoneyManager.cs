@@ -63,7 +63,7 @@ public class MoneyManager : MonoBehaviour
 
     /// <summary>お金を増やす</summary>
     /// <param name="addmoney">増やす量</param>
-    public static void AddMoney(int addMoney)
+    public void AddMoney(int addMoney)
     {
         _currentMoney = Mathf.Min(_currentMoney  + addMoney, _maxMoney);
     }
