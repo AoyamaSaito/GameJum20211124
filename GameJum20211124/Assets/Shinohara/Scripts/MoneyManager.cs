@@ -26,7 +26,7 @@ public class MoneyManager : MonoBehaviour
     float _time = 0f;
 
     /// <summary>現在の所持金</summary>
-    public int CurrentMoney { get => _currentMoney; set => _currentMoney = value; }
+    public static int CurrentMoney { get => _currentMoney; set => _currentMoney = value; }
     /// <summary>所持金の上限</summary>
     public static int MaxMoney { get => _maxMoney; set => _maxMoney = value; }
 
