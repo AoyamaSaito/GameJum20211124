@@ -59,13 +59,11 @@ public class MoneyManager : MonoBehaviour
         _maxMoenyText.text = "上限金額" + _maxMoney.ToString();
          TimeMoney();
         _currentMoney = Mathf.Clamp(_currentMoney, 0, _maxMoney);
-        Debug.Log(_addAmount);
-        
     }
 
     /// <summary>お金を増やす</summary>
     /// <param name="addmoney">増やす量</param>
-    public void AddMoney(int addMoney)
+    public static void AddMoney(int addMoney)
     {
         _currentMoney = Mathf.Min(_currentMoney  + addMoney, _maxMoney);
     }
