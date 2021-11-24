@@ -51,7 +51,7 @@ public class MoneyManager : MonoBehaviour
 
     /// <summary>お金を増やす</summary>
     /// <param name="addmoney">増やす量</param>
-    public void AddMoney(int addMoney)
+    public static void AddMoney(int addMoney)
     {
         Debug.Log("上がる");
         _currentMoney = Mathf.Min(_currentMoney  + addMoney, _maxMoney);
@@ -59,7 +59,7 @@ public class MoneyManager : MonoBehaviour
 
     /// <summary>お金を減らす</summary>
     /// <param name="reduceMoney">減らす量</param>
-    public void ReduceMoney(int reduceMoney)
+    public static void ReduceMoney(int reduceMoney)
     {
         Debug.Log("下がる");
         _currentMoney = Mathf.Max(_currentMoney - reduceMoney, 0);
@@ -67,7 +67,7 @@ public class MoneyManager : MonoBehaviour
 
     /// <summary>上限を上げる</summary>
     /// <param name="nextMaxMoney">次の上限</param>
-    public void UpMaxMoney(int nextMaxMoney)
+    public static void UpMaxMoney(int nextMaxMoney)
     {
         Debug.Log("上限を上げる");
         _maxMoney = nextMaxMoney;
