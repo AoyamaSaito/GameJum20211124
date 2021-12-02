@@ -11,6 +11,7 @@ public class TimeMoneyUp : MonoBehaviour
     [SerializeField] float missTextTime = 1f;
     Text goalText;
     [SerializeField] int addMoney = 10;
+    Button upButton = default;
 
     public static TimeMoneyUp Instance = default;
 
@@ -32,6 +33,7 @@ public class TimeMoneyUp : MonoBehaviour
     void Start()
     {
         goalText = GameObject.Find("TimeGoalText").GetComponent<Text>();
+        upButton = GameObject.Find("TimeMoneyUpButton").GetComponent<Button>();
         goal = goals[currentGoalIndex++];
         goalText.text = "獲得量アップ額:" + goal.ToString();
     }
@@ -41,6 +43,8 @@ public class TimeMoneyUp : MonoBehaviour
         if (goalText == null && GameObject.Find("TimeGoalText") != null)
         {
             goalText = GameObject.Find("TimeGoalText").GetComponent<Text>();
+            upButton = GameObject.Find("TimeMoneyUpButton").GetComponent<Button>();
+            upButton.onClick.AddListener(() => Buy());
         }
 
         goalText.text = "獲得量アップ額:" + goal.ToString();

@@ -55,7 +55,6 @@ public class MoneyManager : MonoBehaviour
             _addAmount = _addMoneyAmount;
             flag = true;
         }
-
     }
 
     // Update is called once per frame

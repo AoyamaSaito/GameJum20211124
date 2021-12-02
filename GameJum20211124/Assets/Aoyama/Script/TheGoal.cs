@@ -9,8 +9,9 @@ public class TheGoal : MonoBehaviour
     [SerializeField] int currentGoalIndex = 0;
     public static GameObject missText = default;
     [SerializeField] float missTextTime = 1f;
+    Button m_button = default;
     Text goalText;
-
+    
     public static TheGoal Instance = default;
 
     private void Awake()
@@ -32,15 +33,20 @@ public class TheGoal : MonoBehaviour
     {
         goalText = GameObject.Find("GoalText").GetComponent<Text>();
         missText = GameObject.Find("NoMoney");
+        m_button = GameObject.Find("BuyButton").GetComponent<Button>();
         goal = goals[currentGoalIndex++];
         goalText.text = goal.ToString();
+        missText.SetActive(false);
     }
 
     private void Update()
     {
-        if (GameObject.FindGameObjectWithTag("GoalText") != null)
+
+        if (GameObject.FindGameObjectWithTag("GoalText") != null && goalText == null)
         {
             goalText = GameObject.FindGameObjectWithTag("GoalText").GetComponent<Text>();
+            missText = GameObject.Find("NoMoney");
+            missText.SetActive(false);
         }
 
         if (missText == null)
@@ -48,13 +54,18 @@ public class TheGoal : MonoBehaviour
             missText = GameObject.Find("NoMoney");
         }
 
+        if (GameObject.Find("BuyButton") != null && m_button == null)
+        {
+            m_button = GameObject.Find("BuyButton").GetComponent<Button>();
+            m_button.onClick.AddListener(() => Buy());
+        }
 
         goalText.text = goal.ToString();
     }
 
     public void Buy()
     {
-        if(MoneyManager.CurrentMoney >= goal)
+        if (MoneyManager.CurrentMoney >= goal)
         {
             MoneyManager.ReduceMoney(goal);
             goal = goals[currentGoalIndex++];
